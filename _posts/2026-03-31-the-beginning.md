@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Beginning: Robotics and Space Research"
-date: 2026-03-31
+date: 2026-03-30
 categories: [intro, robotics]
 ---
 
