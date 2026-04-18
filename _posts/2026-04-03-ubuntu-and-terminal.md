@@ -16,8 +16,6 @@ Product: a simple .sh script to automatically create the project directory struc
 
 <br>
 <br>
-<br>
-<br>
 
 # A. Installing Ubuntu (Dual Boot)
 
@@ -511,4 +509,4 @@ You can use `sudo -u [user] [command]` to simulate being another user without lo
 | **Admin Read/Write** | `sudo -u ha-le touch /opt/h-robot/test.txt` | **Success ✅** |
 | **Dev Edit Admin File** | `echo "# Update" \| sudo -u ha-le-1 tee -a /opt/h-robot/main_core.py` | **Success ✅** (ACL works) |
 | **Dev Delete Admin File** | `sudo -u ha-le-1 rm /opt/h-robot/main_core.py` | **Denied 🚫** (Sticky Bit works) |
-| **Viewer Edit File** | `echo "Hack" \| sudo -u ha-le-2 tee /opt/h-robot/main_core.py` | **Denied   🚫** (Permission denied) |
+| **Viewer Edit File** | `echo "Hack" \| sudo -u ha-le-2 tee /opt/h-robot/main_core.py` | **Denied 🚫** (Permission denied) |
