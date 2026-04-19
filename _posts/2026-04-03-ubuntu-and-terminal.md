@@ -43,7 +43,8 @@ Product: a simple .sh script to automatically create the project directory struc
 * **Access BIOS:** Restart and tap `F2`, `F10`, or `Del`.
 * **SATA Mode:** Switch from RAID/RST to **AHCI** (Crucial for SSD detection).
 * **Secure Boot:** Set to **Disabled** if you encounter signature errors.
-* **Boot Priority:** 1. **Keep the USB plugged in.**
+* **Boot Priority:** 
+    1. **Keep the USB plugged in.**
     2. Move USB to the top of the boot order or use the **Boot Menu** (`F12`/`Esc`) during restart.
 
 ## 4. Installation Steps
@@ -507,6 +508,15 @@ You can use `sudo -u [user] [command]` to simulate being another user without lo
 | Test Case | Command | Expected Result |
 | :--- | :--- | :--- |
 | **Admin Read/Write** | `sudo -u ha-le touch /opt/h-robot/test.txt` | **Success ✅** |
-| **Dev Edit Admin File** | `echo "# Update" \| sudo -u ha-le-1 tee -a /opt/h-robot/main_core.py` | **Success ✅** (ACL works) |
+| **Dev Edit Admin File** | <code>echo "# Update" \| sudo -u ha-le-1 tee -a /opt/h-robot/main_core.py</code> | **Success ✅** (ACL works) |
 | **Dev Delete Admin File** | `sudo -u ha-le-1 rm /opt/h-robot/main_core.py` | **Denied 🚫** (Sticky Bit works) |
-| **Viewer Edit File** | `echo "Hack" \| sudo -u ha-le-2 tee /opt/h-robot/main_core.py` | **Denied 🚫** (Permission denied) |
+| **Viewer Edit File** | <code>echo "Hack" \| sudo -u ha-le-2 tee /opt/h-robot/main_core.py</code> | **Denied 🚫** (Permission denied) |
+
+
+Now, try run `python3 /opt/h-robot/main_core.py`
+
+The detailed source code is available on GitHub:
+[setup_hrobot.sh](https://github.com/hale84/hale84.github.io/blob/main/linux_exercises/setup_hrobot.sh)
+
+
+# DONE!!!
